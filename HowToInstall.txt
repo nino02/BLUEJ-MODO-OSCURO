@@ -1,0 +1,60 @@
+MAXIMOS CREDITOS A  SoulNinja-dev/BlueJ_DarkMode LOS CODIGOS DEL MODO OSCURO SON SUYOS.
+
+IMPORTANTE: AL TRATAR CON CARPETAS DE PROGRAM FILES SALTA EL ANTIVIRUS TODO EL RATO 
+DESACTIVE EL ANTIVIRUS O DESCOMPRIMIR PROGRAMA.EXE DENTRO DE PROGRAMFILES/BLUEJ/LIB DE MANERA MANUAL
+
+
+SOLO FUNCIONA SI TINES BLUEJ DESCARGADO EN LA CARPETAS QUE VIENEN POR DEFECTO 
+SI TE ATREVES PUEDES CAMBIAR EL CODIGO SOLO HAY QUE CAMBIAR EL LUGAR DE DESCARGA
+
+
+ES NECESARIO ABRIR LOS PROGRAMAS COMO ADMINISTRADOR PARA QUE FUNCIONE
+PONER ON OR OFF EN EL PROGRAMA Y TODO LISTO;
+
+SI NO CONFIA DEJO POR AQUI EL CODIGO LO UNICO QUE HACE ES COPIAR Y PEGAR ARCHIVOS LENGUAJE ARCHIVO POR LOTES
+
+
+@echo off
+mode 66,4
+title BLUEJ
+color 97
+
+
+:inicio
+echo MODO OSCURO DE BLUEJ
+echo EJECUTAR COMO ADMIN
+echo.
+set /p decision=Modo oscuro (ON/OFF) : 
+echo "%decision%"
+if "%decision%"=="on" goto oscuro
+if "%decision%"=="ON" goto oscuro
+if "%decision%"=="OFF" goto white
+if "%decision%"=="off" goto white
+pause
+
+:white
+color f0
+xcopy C:\"Program Files"\BlueJ\lib\styles\white C:\"Program Files"\BlueJ\lib\stylesheets /Y
+if errorlevel 1 goto error
+cls
+echo BLUEJ
+echo.
+echo modo oscuro desactivado :)
+pause>nul
+exit
+
+:oscuro
+color 0f
+xcopy C:\"Program Files"\BlueJ\lib\styles\black C:\"Program Files"\BlueJ\lib\stylesheets /Y
+if errorlevel 1 goto error
+cls
+echo BLUEJ
+echo.
+echo modo oscuro activado :)
+pause>nul
+exit
+
+:error
+cls
+echo NO SE HA COPIADO BIEN EJECUTA COMO ADMIN
+pause>nul
